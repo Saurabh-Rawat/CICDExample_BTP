@@ -1,0 +1,25 @@
+_schema-version: "3.1"
+ID: ui5-hello-ui5
+version: 1.0.0
+
+modules:
+  - name: ui5-hello-approuter
+    type: nodejs
+    path: approuter
+    parameters:
+      memory: 128M
+      disk-quota: 256M
+    requires:
+      - name: ui5-hello-uaa
+    build-parameters:
+      builder: npm
+      ignore:
+        - node_modules/
+
+resources:
+  - name: ui5-hello-uaa
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: xsuaa
+      service-plan: application
+      path: xs-security.json

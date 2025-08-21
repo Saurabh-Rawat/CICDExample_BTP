@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Hello UI5</title>
+    <script id="sap-ui-bootstrap"
+            src="https://ui5.sap.com/resources/sap-ui-core.js"
+            data-sap-ui-theme="sap_horizon"
+            data-sap-ui-libs="sap.m"
+            data-sap-ui-async="true"></script>
+    <script>
+      sap.ui.getCore().attachInit(function () {
+        new sap.m.App({
+          pages: [ new sap.m.Page({ title: "CI/CD Demo", content: [
+            new sap.m.ObjectHeader({ title: "Hello World from UI5" }),
+            new sap.m.Text({ text: "Deployed automatically via SAP CI/CD → Cloud Foundry." })
+          ]}) ]
+        }).placeAt("content");
+      });
+    </script>
+  </head>
+  <body class="sapUiBody" id="content"></body>
+</html>

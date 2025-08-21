@@ -1,0 +1,6 @@
+{
+  "xsappname": "ui5-hello-uaa",
+  "tenant-mode": "shared",
+  "scopes": [{ "name": "$XSAPPNAME.Display", "description": "display" }],
+  "authorities": []
+}

@@ -1,23 +1,75 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8"/>
-    <title>Hello UI5</title>
-    <script id="sap-ui-bootstrap"
-            src="https://ui5.sap.com/resources/sap-ui-core.js"
-            data-sap-ui-theme="sap_horizon"
-            data-sap-ui-libs="sap.m"
-            data-sap-ui-async="true"></script>
-    <script>
-      sap.ui.getCore().attachInit(function () {
-        new sap.m.App({
-          pages: [ new sap.m.Page({ title: "CI/CD Demo", content: [
-            new sap.m.ObjectHeader({ title: "Hello World from UI5 22.08.2025" }),
-            new sap.m.Text({ text: "Deployed automatically via SAP CI/CD → Cloud Foundry." })
-          ]}) ]
-        }).placeAt("content");
-      });
-    </script>
-  </head>
-  <body class="sapUiBody" id="content"></body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>CI/CD Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --sap-primary: #0a6ed1;
+      --sap-text: #1a1a1a;
+      --sap-subtle: #6a6d70;
+      --card-bg: #ffffff;
+      --page-bg: #f5f6f7;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "72", "72full", Arial, Helvetica, sans-serif;
+      color: var(--sap-text);
+      background: var(--page-bg);
+      display: grid;
+      place-items: center;
+      min-height: 100vh;
+    }
+    .card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 24px 28px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      max-width: 640px;
+      width: 92%;
+    }
+    h1 {
+      margin: 0 0 8px 0;
+      color: var(--sap-primary);
+      font-size: 28px;
+      line-height: 1.2;
+    }
+    p { margin: 6px 0; }
+    .subtitle { color: var(--sap-subtle); }
+    .tag {
+      display: inline-block;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(10,110,209,0.25);
+      color: var(--sap-primary);
+      font-size: 12px;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+    .footer {
+      margin-top: 14px;
+      font-size: 12px;
+      color: var(--sap-subtle);
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>CI/CD Demo <span class="tag">v2</span> ✅</h1>
+    <p>Hello World from <b>UI5 (v2)</b></p>
+    <p class="subtitle">Deployed automatically via SAP CI/CD → Cloud Foundry.</p>
+
+    <div class="footer">
+      <span id="ts"></span>
+    </div>
+  </div>
+
+  <script>
+    // Just to make it obvious the page refreshed after a new deploy
+    document.getElementById('ts').textContent =
+      "Page loaded at: " + new Date().toLocaleString();
+  </script>
+</body>
 </html>
